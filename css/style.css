@@ -118,7 +118,7 @@ select:focus-visible,
   flex-shrink: 0;
 }
 .brand:hover { color: var(--color-primary-dark); }
-.brand-mark { width: 36px; height: 36px; flex-shrink: 0; }
+.brand-mark { height: 38px; width: auto; flex-shrink: 0; }
 .brand-text-org { display: block; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.04em; color: var(--color-text-muted); font-family: var(--font-body); text-transform: uppercase; }
 
 .nav-toggle {
@@ -408,6 +408,7 @@ legend { font-weight: 700; padding: 0 0.4rem; }
   .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
 }
 .site-footer h2, .site-footer h3 { color: #fff; font-size: 1rem; font-family: var(--font-body); }
+.footer-logo { height: 44px; width: auto; margin-bottom: 0.85rem; }
 .site-footer a { color: #cfe0dd; }
 .site-footer a:hover { color: #fff; }
 .footer-legal-org {

@@ -18,7 +18,8 @@ contact.html       Contact — phone/email/contact form, no address
 privacy.html       Privacy & Cookies Policy (UK GDPR)
 css/style.css      Shared stylesheet (single design system, no framework)
 js/main.js         Mobile nav, cookie banner, progressive-enhancement form handling
-assets/favicon.svg Site icon
+assets/logo.png    Real logo (icon mark), transparent background
+assets/favicon-*.png, apple-touch-icon.png   Favicons derived from the logo
 robots.txt / sitemap.xml
 netlify.toml       Optional Netlify headers/caching config
 ```
