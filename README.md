@@ -125,6 +125,6 @@ Static hosting, no build command required:
   directory = `/`
 - **Cloudflare Pages**: build command = none, build output directory = `/`
 
-After deploying, update the `<link rel="canonical">` tags and `sitemap.xml` /
-`robots.txt` if the final domain differs from
-`www.westmerecarelimited.co.uk` (a placeholder used throughout).
+The `<link rel="canonical">` tags, `sitemap.xml` and `robots.txt` already
+point at the real domain, `www.westmerecare.co.uk`. If that ever changes,
+update all three.
