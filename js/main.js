@@ -10,16 +10,28 @@
   var nav = document.getElementById("primary-nav");
 
   if (toggle && nav) {
+    function closeNav(returnFocus) {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      if (returnFocus) {
+        toggle.focus();
+      }
+    }
+
     toggle.addEventListener("click", function () {
       var isOpen = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    nav.addEventListener("keydown", function (event) {
+    document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && nav.classList.contains("is-open")) {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.focus();
+        closeNav(true);
+      }
+    });
+
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) {
+        closeNav(false);
       }
     });
 
@@ -27,8 +39,7 @@
     var mq = window.matchMedia("(min-width: 861px)");
     var handleBreakpoint = function (e) {
       if (e.matches) {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
+        closeNav(false);
       }
     };
     if (mq.addEventListener) mq.addEventListener("change", handleBreakpoint);
@@ -66,6 +77,9 @@
 
   forms.forEach(function (form) {
     form.addEventListener("submit", function (event) {
+      clearFormMessages(form);
+      clearFieldErrors(form);
+
       // Honeypot check: if the hidden field has been filled in, silently
       // pretend to succeed without ever contacting the form endpoint.
       var honeypot = form.querySelector('[name="_gotcha"]');
@@ -73,6 +87,15 @@
         event.preventDefault();
         showFormSuccess(form);
         form.reset();
+        return;
+      }
+
+      var invalidFields = getInvalidFields(form);
+      if (invalidFields.length) {
+        event.preventDefault();
+        showFieldErrors(invalidFields);
+        showFormError(form, "Please check the highlighted fields and try again.");
+        invalidFields[0].focus();
         return;
       }
 
@@ -110,10 +133,47 @@
     });
   });
 
+  function getInvalidFields(form) {
+    return Array.prototype.slice.call(form.querySelectorAll("input, select, textarea"))
+      .filter(function (field) {
+        return field.willValidate && !field.checkValidity();
+      });
+  }
+
+  function showFieldErrors(fields) {
+    fields.forEach(function (field) {
+      var errorId = field.id + "-error";
+      var msg = document.createElement("p");
+      msg.className = "field-error";
+      msg.id = errorId;
+      msg.textContent = field.validationMessage || "Please complete this field.";
+
+      if (!field.dataset.originalDescribedby) {
+        field.dataset.originalDescribedby = field.getAttribute("aria-describedby") || "";
+      }
+      var describedby = field.dataset.originalDescribedby;
+      field.setAttribute("aria-describedby", (describedby ? describedby + " " : "") + errorId);
+      field.setAttribute("aria-invalid", "true");
+      field.insertAdjacentElement("afterend", msg);
+    });
+  }
+
+  function clearFieldErrors(form) {
+    form.querySelectorAll(".field-error").forEach(function (el) { el.remove(); });
+    form.querySelectorAll("[aria-invalid]").forEach(function (field) {
+      var originalDescribedby = field.dataset.originalDescribedby || "";
+      if (originalDescribedby) {
+        field.setAttribute("aria-describedby", originalDescribedby);
+      } else {
+        field.removeAttribute("aria-describedby");
+      }
+      field.removeAttribute("aria-invalid");
+    });
+  }
+
   function showFormSuccess(form) {
-    clearFormMessages(form);
     var msg = document.createElement("div");
-    msg.className = "form-success";
+    msg.className = "form-message form-success";
     msg.setAttribute("role", "status");
     msg.tabIndex = -1;
     msg.textContent = "Thank you — your message has been sent. We aim to respond within one working day.";
@@ -121,22 +181,18 @@
     msg.focus();
   }
 
-  function showFormError(form) {
-    clearFormMessages(form);
+  function showFormError(form, message) {
     var msg = document.createElement("div");
-    msg.className = "form-success";
-    msg.style.background = "#fbe9e7";
-    msg.style.borderColor = "#e0a89e";
-    msg.style.color = "#7a2e1f";
+    msg.className = "form-message form-error";
     msg.setAttribute("role", "alert");
     msg.tabIndex = -1;
-    msg.textContent = "Sorry, something went wrong sending your message. Please try again, or contact us by phone.";
+    msg.textContent = message || "Sorry, something went wrong sending your message. Please try again, or contact us by phone.";
     form.parentNode.insertBefore(msg, form);
     msg.focus();
   }
 
   function clearFormMessages(form) {
-    var existing = form.parentNode.querySelectorAll(".form-success");
+    var existing = form.parentNode.querySelectorAll(".form-message");
     existing.forEach(function (el) { el.remove(); });
   }
 })();

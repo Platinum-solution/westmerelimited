@@ -226,7 +226,7 @@ select:focus-visible,
   letter-spacing: 0.08em;
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: #7d5623;
   margin-bottom: 0.75rem;
 }
 .hero-lede { font-size: 1.15rem; color: var(--color-text-muted); max-width: 46ch; }
@@ -294,6 +294,9 @@ select:focus-visible,
 }
 .cta-band h2 { color: #fff; }
 .cta-band p { color: #d7e3e1; }
+.cta-band a { color: #cfe0dd; }
+.cta-band a:hover { color: #fff; }
+.cta-band .btn-accent { color: #fff; }
 .cta-band .btn-outline { color: #fff; border-color: #fff; }
 .cta-band .btn-outline:hover { background: rgba(255,255,255,0.12); }
 
@@ -349,13 +352,26 @@ fieldset { border: 1px solid var(--color-border); border-radius: var(--radius); 
 legend { font-weight: 700; padding: 0 0.4rem; }
 .form-note { font-size: 0.9rem; color: var(--color-text-muted); margin-top: 1rem; }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.form-success {
+.form-message {
   background: var(--color-success-bg);
   color: var(--color-success-text);
   border: 1px solid #b7d3c0;
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
+}
+.form-error {
+  background: #fbe9e7;
+  border-color: #e0a89e;
+  color: #7a2e1f;
+}
+.field-error {
+  color: #7a2e1f;
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+[aria-invalid="true"] {
+  border-color: #a9432f !important;
 }
 
 /* ---------- Footer ---------- */
