@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  /* ---------- Footer copyright year ---------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   /* ---------- Mobile nav toggle ---------- */
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.getElementById("primary-nav");

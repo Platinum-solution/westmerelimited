@@ -444,5 +444,6 @@ legend { font-weight: 700; padding: 0 0.4rem; }
   font-weight: 600;
 }
 .page-intro { max-width: 70ch; }
+.contact-details-grid { gap: 1.25rem; }
 .two-col { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
 @media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
