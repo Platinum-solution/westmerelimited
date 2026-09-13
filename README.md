@@ -11,9 +11,9 @@ commissioning teams, not the general public.
 index.html        Home
 about.html         About Us — mission, values, leadership bios
 our-homes.html     Our Homes — general overview, no exact address
-ofsted.html        Ofsted & Regulation — registration status, quality standards
 referrals.html     Referrals — process + enquiry form
 careers.html       Careers — recruitment info + enquiry form
+residential-support-worker.html   Full job description, linked from careers.html
 contact.html       Contact — phone/email/contact form, no address
 privacy.html       Privacy & Cookies Policy (UK GDPR)
 css/style.css      Shared stylesheet (single design system, no framework)
@@ -29,32 +29,21 @@ semantic HTML and can be opened directly in a browser or deployed as-is.
 
 ## Content still needed — search for `[PLACEHOLDER]`
 
-Every piece of content that requires real information (not yet supplied, or
-that would otherwise involve inventing a regulatory claim) is wrapped in a
-`[PLACEHOLDER]`-style tag, often with a dashed amber background so it's easy
-to spot visually in the browser. Before launch, replace all of these. Key
-items:
+Everything is filled in with real content now, with one deliberate
+exception:
 
-- **Mission statement wording** (`about.html`)
-- **Founders' / leadership professional bios** (`about.html`) — no personal
-  addresses or private details, professional background only
-- **Care model / methodology description, age range, placement capacity**
-  (`about.html`, `our-homes.html`)
-- **Ofsted URN, registration status, and inspection rating** (`ofsted.html`)
-  — do **not** fill this in until Ofsted registration/rating is actually
-  confirmed
-- **London Borough** for the Edgware home (`our-homes.html`)
-- **Phone number and email domain** (footer of every page, `contact.html`,
-  `referrals.html`, `careers.html`)
-- **Registered office address** (footer of every page, `privacy.html`) — this
-  is the company's statutory registered office (a Companies House / legal
-  requirement), which is **separate** from the care home's own address. The
-  home's exact address must never be published on this site — see the
-  safeguarding note below.
-- **Form endpoint** — see "Wiring up the forms" below
-- **Privacy policy specifics** — ICO registration reference, data retention
-  periods, and the actual form-processing service used (`privacy.html`)
-- **Current vacancies** (`careers.html`)
+- **ICO registration reference** (`privacy.html`) — do not invent this;
+  leave it until confirmed
+
+## Ofsted & Regulation page — removed for now
+
+There was previously an `ofsted.html` page (registration status, Ofsted
+Quality Standards). It was removed at the client's request until the home is
+actually registered, rather than leave a half-finished regulatory page live.
+It's still in git history (see the "Wire in real content" commit) and can be
+restored easily once registration is confirmed — re-add the page, then add
+its nav link back to all pages' `<nav class="primary-nav">` and footer
+`Site` list, plus a sitemap.xml entry.
 
 ## Safeguarding: what must never be added
 
@@ -63,6 +52,8 @@ items:
 - Any individual child's name, photo, or identifying detail
 - Pricing / placement fees
 - Any Ofsted rating or registration claim that hasn't been confirmed
+- A staff salary figure (`residential-support-worker.html` deliberately
+  omits one, per the client's instruction — it's discussed at interview)
 
 The public enquiry forms (Referrals, Careers, Contact) intentionally only
 collect name, organisation, phone, email and a free-text message — there is
@@ -71,22 +62,20 @@ explicit instruction not to include any.
 
 ## Wiring up the forms
 
-The three forms (`referrals.html`, `careers.html`, `contact.html`) currently
-point at:
+The three forms (`referrals.html`, `careers.html`, `contact.html`) are live,
+pointing at a real Formspree endpoint:
 
 ```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" ...>
+<form action="https://formspree.io/f/xnpqkabg" method="POST" ...>
 ```
 
-To go live:
-
-1. Create a free account at [formspree.io](https://formspree.io) (or any
-   similar form backend / email-forwarding service).
-2. Create a form and copy its endpoint URL.
-3. Replace `https://formspree.io/f/YOUR_FORM_ID` in all three files with your
-   real endpoint.
-4. Each form also has a hidden honeypot field (`_gotcha`) for basic spam
-   protection, and a hidden `_subject` field you can customise per form.
+All three currently share one Formspree form — the hidden `_subject` field
+on each labels submissions by page, so they're still easy to tell apart in
+the inbox/dashboard. Each form also has a hidden honeypot field (`_gotcha`)
+for basic spam protection. If you ever want the three forms split into
+separate Formspree forms/dashboards, create additional forms at
+[formspree.io](https://formspree.io) and swap the `action` URL on the
+relevant `<form>` tag.
 
 The forms work as plain HTML `POST` submissions even without JavaScript.
 `js/main.js` progressively enhances them to submit via `fetch` and show an
