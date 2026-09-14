@@ -115,6 +115,13 @@ Static hosting, no build command required:
   directory = `/`
 - **Cloudflare Pages**: build command = none, build output directory = `/`
 
-The `<link rel="canonical">` tags, `sitemap.xml` and `robots.txt` already
-point at the real domain, `www.westmerecare.co.uk`. If that ever changes,
-update all three.
+The `<link rel="canonical">` tags, `sitemap.xml`, `robots.txt` and the
+Open Graph/structured data URLs currently point at
+`https://westmerecare.netlify.app` — **not** `www.westmerecare.co.uk` —
+because as of this writing the custom domain still shows Squarespace's
+default "under construction" page rather than resolving to this Netlify
+site. Once `westmerecare.co.uk` is actually connected to Netlify (Netlify
+dashboard → Domain settings) and resolving correctly, switch every one of
+those references back to `https://www.westmerecare.co.uk` — a find/replace
+across `*.html`, `sitemap.xml` and `robots.txt` for the domain string is
+enough, there's no build step to worry about.
