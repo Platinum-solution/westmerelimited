@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /privacy.html
 
-Sitemap: https://www.westmerecare.co.uk/sitemap.xml
+Sitemap: https://westmerecare.netlify.app/sitemap.xml

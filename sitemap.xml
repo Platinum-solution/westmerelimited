@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.westmerecare.co.uk/</loc>
+    <loc>https://westmerecare.netlify.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/about.html</loc>
+    <loc>https://westmerecare.netlify.app/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/our-homes.html</loc>
+    <loc>https://westmerecare.netlify.app/our-homes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/referrals.html</loc>
+    <loc>https://westmerecare.netlify.app/referrals.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/careers.html</loc>
+    <loc>https://westmerecare.netlify.app/careers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/residential-support-worker.html</loc>
+    <loc>https://westmerecare.netlify.app/residential-support-worker.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.westmerecare.co.uk/contact.html</loc>
+    <loc>https://westmerecare.netlify.app/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
