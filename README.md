@@ -115,13 +115,25 @@ Static hosting, no build command required:
   directory = `/`
 - **Cloudflare Pages**: build command = none, build output directory = `/`
 
-The `<link rel="canonical">` tags, `sitemap.xml`, `robots.txt` and the
-Open Graph/structured data URLs currently point at
-`https://westmerecare.netlify.app` — **not** `www.westmerecare.co.uk` —
-because as of this writing the custom domain still shows Squarespace's
-default "under construction" page rather than resolving to this Netlify
-site. Once `westmerecare.co.uk` is actually connected to Netlify (Netlify
-dashboard → Domain settings) and resolving correctly, switch every one of
-those references back to `https://www.westmerecare.co.uk` — a find/replace
-across `*.html`, `sitemap.xml` and `robots.txt` for the domain string is
-enough, there's no build step to worry about.
+## Domain and DNS
+
+The site is served at `https://westmerecare.co.uk`. In Netlify's Domain
+management, the bare domain is the **primary domain** and
+`www.westmerecare.co.uk` redirects to it — so the `<link rel="canonical">`
+tags, `sitemap.xml`, `robots.txt` and the Open Graph/structured data URLs all
+use `https://westmerecare.co.uk` with no `www`. Pointing a canonical at the
+`www` form would point it at a redirect.
+
+The domain is registered with Squarespace, which still hosts its DNS. Two
+custom records there send web traffic to Netlify:
+
+| Type  | Host  | Value                      |
+|-------|-------|----------------------------|
+| A     | `@`   | `75.2.60.5`                |
+| CNAME | `www` | `westmerecare.netlify.app` |
+
+Squarespace's own "Squarespace Defaults" preset was deleted to make room for
+these — if it is ever re-added, the site will revert to Squarespace's
+"under construction" page. The MX and TXT records in the same panel carry the
+Google Workspace mailbox (`info@westmerecare.co.uk`); leave them alone when
+changing anything web-related.
