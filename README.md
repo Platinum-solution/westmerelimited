@@ -20,6 +20,8 @@ css/style.css      Shared stylesheet (single design system, no framework)
 js/main.js         Mobile nav, cookie banner, progressive-enhancement form handling
 assets/logo.png    Real logo (icon mark), transparent background
 assets/favicon-*.png, apple-touch-icon.png   Favicons derived from the logo
+assets/og-image.jpg  Link-preview image (1200×630)
+assets/fonts/       Self-hosted Fraunces + Public Sans (variable woff2, SIL OFL)
 robots.txt / sitemap.xml
 netlify.toml       Optional Netlify headers/caching config
 ```
@@ -84,13 +86,19 @@ deliberately does nothing (lets the native browser submission proceed) if it
 detects the endpoint is still the placeholder `YOUR_FORM_ID`, so a forgotten
 step fails loudly rather than silently "succeeding".
 
-## Cookie / privacy notice
+## Cookies, tracking and third parties
 
-A simple, unobtrusive banner (bottom of screen) offers "Accept all" or
-"Essential only", storing the choice in `localStorage` only — no cookie is
-set by the banner itself, and no analytics script is wired in by default.
-If you add an analytics tool later, gate its loading on the stored consent
-value (`westmere_cookie_consent`) and update `privacy.html` accordingly.
+The site sets no cookies and stores nothing in the browser, so there is no
+cookie banner — under UK PECR one is only needed for non-essential storage.
+Every asset, fonts included, is served from this repository: browsing the site
+makes no third-party requests, and the Content-Security-Policy in
+`netlify.toml`/`_headers` enforces that (`'self'` only, plus Formspree for form
+submissions).
+
+If analytics are ever added: a cookieless tool such as Plausible still needs
+`privacy.html` updated and its script/endpoint added to the CSP; anything that
+sets cookies also needs a consent banner that blocks it until the visitor opts
+in.
 
 ## Accessibility (WCAG 2.1 AA)
 

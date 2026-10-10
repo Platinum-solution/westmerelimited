@@ -6,32 +6,32 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/about.html</loc>
+    <loc>https://westmerecare.co.uk/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/our-homes.html</loc>
+    <loc>https://westmerecare.co.uk/our-homes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/referrals.html</loc>
+    <loc>https://westmerecare.co.uk/referrals</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/careers.html</loc>
+    <loc>https://westmerecare.co.uk/careers</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/residential-support-worker.html</loc>
+    <loc>https://westmerecare.co.uk/residential-support-worker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://westmerecare.co.uk/contact.html</loc>
+    <loc>https://westmerecare.co.uk/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
