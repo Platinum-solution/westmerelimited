@@ -354,9 +354,22 @@ select:focus-visible,
 
 /* ---------- CTA band ---------- */
 .cta-band {
-  background: var(--color-primary-dark);
+  background: var(--color-primary);
   color: #fff;
-  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  padding-block: clamp(2.25rem, 4vw, 3rem);
+}
+.cta-band p:last-of-type { margin-bottom: 0; }
+@media (min-width: 860px) {
+  .cta-band .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 3rem;
+    align-items: center;
+  }
+  .cta-band h2,
+  .cta-band p { grid-column: 1; }
+  .cta-band h2 { margin-bottom: 0.5rem; }
+  .cta-band .hero-actions { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
 }
 .cta-band h2 { color: #fff; }
 .cta-band p { color: #d7e3e1; }
@@ -445,7 +458,6 @@ legend { font-weight: 700; padding: 0 0.4rem; }
   background: var(--color-primary-dark);
   color: #dfe8e6;
   padding-block: 2.75rem 1.5rem;
-  margin-top: 3rem;
 }
 .footer-grid {
   display: grid;
