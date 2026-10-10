@@ -55,10 +55,21 @@
   <main id="main">
 
     <section class="hero">
-      <div class="container">
-        <p class="hero-eyebrow">Careers</p>
-        <h1>Join our team</h1>
-        <p class="hero-lede">We're building a staff team who genuinely want to make a difference in young people's lives. If that sounds like you, we'd like to hear from you.</p>
+      <div class="container hero-grid">
+        <div>
+          <p class="hero-eyebrow">Careers</p>
+          <h1>Join our team</h1>
+          <p class="hero-lede">We're building a staff team who genuinely want to make a difference in young people's lives. If that sounds like you, we'd like to hear from you.</p>
+        </div>
+        <div class="hero-aside">
+          <h2>Why work with us</h2>
+          <ul class="check-list">
+            <li>Full paid induction and shadow shifts</li>
+            <li>Support towards the Level 3 Diploma for Residential Childcare</li>
+            <li>Regular supervision and reflective practice</li>
+            <li>A small, supportive team and a workplace pension</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -89,14 +100,21 @@
       <div class="container">
         <div class="section-header">
           <h2>Current opportunities</h2>
-          <p>We're currently recruiting for the role below. Don't see a fit? We welcome speculative applications from candidates with relevant experience through the enquiry form below.</p>
+          <p>The roles we're recruiting for now, and how to get in touch if none of them is quite right.</p>
         </div>
-        <div class="page-intro">
+        <div class="grid grid-2">
           <div class="card">
+            <p class="card-tag">Now recruiting</p>
             <h3>Residential Support Worker</h3>
             <p class="text-muted">Full-time · Edgware, North West London</p>
             <p>Join our care team providing day-to-day support, guidance and stability to the children and young people in our home.</p>
             <p><a href="residential-support-worker.html">View the full job description &rarr;</a></p>
+          </div>
+          <div class="card">
+            <p class="card-tag">Speculative applications</p>
+            <h3>Don't see the right role?</h3>
+            <p>We welcome speculative applications from people with experience in residential childcare, education, youth work or a similar setting, and from people new to care who share our values.</p>
+            <p><a href="#enquiry-form">Send us a recruitment enquiry &rarr;</a></p>
           </div>
         </div>
       </div>
@@ -109,46 +127,59 @@
           <p>Tell us a little about yourself and the role you're interested in, and a member of our team will be in touch. Fields marked <span class="required-mark">*</span> are required.</p>
         </div>
 
-        <form class="form-grid" action="https://formspree.io/f/xnpqkabg" method="POST" data-ajax-form novalidate>
-          <input type="hidden" name="_subject" value="New recruitment enquiry — Westmere Care website">
-          <div class="hp-field" aria-hidden="true">
-            <label for="careers-company">Leave this field blank</label>
-            <input type="text" id="careers-company" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
+        <div class="form-layout">
+          <div class="form-main">
+            <form class="form-grid" action="https://formspree.io/f/xnpqkabg" method="POST" data-ajax-form novalidate>
+              <input type="hidden" name="_subject" value="New recruitment enquiry — Westmere Care website">
+              <div class="hp-field" aria-hidden="true">
+                <label for="careers-company">Leave this field blank</label>
+                <input type="text" id="careers-company" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
 
-          <div class="form-row-2">
-            <div>
-              <label for="cv-name">Your name <span class="required-mark">*</span></label>
-              <input type="text" id="cv-name" name="name" autocomplete="name" required>
-            </div>
-            <div>
-              <label for="cv-role">Role you're interested in</label>
-              <input type="text" id="cv-role" name="role" autocomplete="off">
-            </div>
-          </div>
+              <div class="form-row-2">
+                <div>
+                  <label for="cv-name">Your name <span class="required-mark">*</span></label>
+                  <input type="text" id="cv-name" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="cv-role">Role you're interested in</label>
+                  <input type="text" id="cv-role" name="role" autocomplete="off">
+                </div>
+              </div>
 
-          <div class="form-row-2">
-            <div>
-              <label for="cv-phone">Phone number <span class="required-mark">*</span></label>
-              <input type="tel" id="cv-phone" name="phone" autocomplete="tel" required>
-            </div>
-            <div>
-              <label for="cv-email">Email address <span class="required-mark">*</span></label>
-              <input type="email" id="cv-email" name="email" autocomplete="email" required>
-            </div>
-          </div>
+              <div class="form-row-2">
+                <div>
+                  <label for="cv-phone">Phone number <span class="required-mark">*</span></label>
+                  <input type="tel" id="cv-phone" name="phone" autocomplete="tel" required>
+                </div>
+                <div>
+                  <label for="cv-email">Email address <span class="required-mark">*</span></label>
+                  <input type="email" id="cv-email" name="email" autocomplete="email" required>
+                </div>
+              </div>
 
-          <div>
-            <label for="cv-message">Tell us about yourself <span class="required-mark">*</span> <span class="hint">— relevant experience and why you'd like to join us</span></label>
-            <textarea id="cv-message" name="message" required></textarea>
-          </div>
+              <div>
+                <label for="cv-message">Tell us about yourself <span class="required-mark">*</span> <span class="hint">— relevant experience and why you'd like to join us</span></label>
+                <textarea id="cv-message" name="message" required></textarea>
+              </div>
 
-          <div>
-            <button type="submit" class="btn btn-primary" data-label="Send Enquiry">Send Enquiry</button>
-          </div>
+              <div>
+                <button type="submit" class="btn btn-primary" data-label="Send Enquiry">Send Enquiry</button>
+              </div>
 
-          <p class="form-note">By submitting this form you agree to our <a href="privacy.html">Privacy &amp; Cookies Policy</a>. All roles are subject to an enhanced DBS check and satisfactory references.</p>
-        </form>
+              <p class="form-note">By submitting this form you agree to our <a href="privacy.html">Privacy &amp; Cookies Policy</a>. All roles are subject to an enhanced DBS check and satisfactory references.</p>
+            </form>
+          </div>
+          <div class="callout form-aside">
+            <h3 class="mt-0">What happens next</h3>
+            <ol class="mini-steps">
+              <li>A member of our team reviews your enquiry and gets in touch.</li>
+              <li>If there's a good fit, we invite you to an interview.</li>
+              <li>Offers are subject to an enhanced DBS check and satisfactory references.</li>
+              <li>You start with a full paid induction and shadow shifts before working unsupervised.</li>
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
 

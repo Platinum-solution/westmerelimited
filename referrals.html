@@ -55,13 +55,24 @@
   <main id="main">
 
     <section class="hero">
-      <div class="container">
-        <p class="hero-eyebrow">Referrals</p>
-        <h1>Making a referral to Westmere Care</h1>
-        <p class="hero-lede">We aim to make referrals as straightforward as possible for social workers and commissioning teams, while keeping information about the young person secure at every stage.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#enquiry-form">Start an Enquiry</a>
-          <a class="btn btn-outline btn-lg" href="tel:07503248463">Call&nbsp;Us</a>
+      <div class="container hero-grid">
+        <div>
+          <p class="hero-eyebrow">Referrals</p>
+          <h1>Making a referral to Westmere Care</h1>
+          <p class="hero-lede">We aim to make referrals as straightforward as possible for social workers and commissioning teams, while keeping information about the young person secure at every stage.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#enquiry-form">Start an Enquiry</a>
+            <a class="btn btn-outline btn-lg" href="tel:07503248463">Call&nbsp;Us</a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <h2>For commissioners</h2>
+          <dl class="fact-list">
+            <div><dt>Ages</dt><dd>8 to 17</dd></div>
+            <div><dt>Capacity</dt><dd>Up to 4 children</dd></div>
+            <div><dt>Location</dt><dd>Edgware, North West London</dd></div>
+            <div><dt>Response</dt><dd>We aim to reply within one working day</dd></div>
+          </dl>
         </div>
       </div>
     </section>
@@ -125,57 +136,59 @@
           <p>For general enquiries only — no child details, please. Fields marked <span class="required-mark">*</span> are required.</p>
         </div>
 
-        <form class="form-grid" action="https://formspree.io/f/xnpqkabg" method="POST" data-ajax-form novalidate>
-          <input type="hidden" name="_subject" value="New referral enquiry — Westmere Care website">
-          <div class="hp-field" aria-hidden="true">
-            <label for="referral-company">Leave this field blank</label>
-            <input type="text" id="referral-company" name="_gotcha" tabindex="-1" autocomplete="off">
+        <div class="form-layout">
+          <div class="form-main">
+            <form class="form-grid" action="https://formspree.io/f/xnpqkabg" method="POST" data-ajax-form novalidate>
+              <input type="hidden" name="_subject" value="New referral enquiry — Westmere Care website">
+              <div class="hp-field" aria-hidden="true">
+                <label for="referral-company">Leave this field blank</label>
+                <input type="text" id="referral-company" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form-row-2">
+                <div>
+                  <label for="ref-name">Your name <span class="required-mark">*</span></label>
+                  <input type="text" id="ref-name" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="ref-org">Organisation / local authority <span class="required-mark">*</span></label>
+                  <input type="text" id="ref-org" name="organisation" autocomplete="organization" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div>
+                  <label for="ref-phone">Phone number <span class="required-mark">*</span></label>
+                  <input type="tel" id="ref-phone" name="phone" autocomplete="tel" required>
+                </div>
+                <div>
+                  <label for="ref-email">Email address <span class="required-mark">*</span></label>
+                  <input type="email" id="ref-email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div>
+                <label for="ref-message">Message <span class="required-mark">*</span> <span class="hint">— general placement need and timescale only; please do not name the child</span></label>
+                <textarea id="ref-message" name="message" required></textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary" data-label="Send Enquiry">Send Enquiry</button>
+              </div>
+
+              <p class="form-note">By submitting this form you agree to our <a href="privacy.html">Privacy &amp; Cookies Policy</a>. We will only use your details to respond to your enquiry.</p>
+            </form>
           </div>
-
-          <div class="form-row-2">
-            <div>
-              <label for="ref-name">Your name <span class="required-mark">*</span></label>
-              <input type="text" id="ref-name" name="name" autocomplete="name" required>
-            </div>
-            <div>
-              <label for="ref-org">Organisation / local authority <span class="required-mark">*</span></label>
-              <input type="text" id="ref-org" name="organisation" autocomplete="organization" required>
-            </div>
+          <div class="callout callout-accent form-aside">
+            <h3 class="mt-0">Prefer to talk it through first?</h3>
+            <p>Call or email us directly. If a placement is needed urgently, phoning is quickest: we can adjust our usual timescales.</p>
+            <p class="mt-0">
+              <strong>Phone:</strong> <a href="tel:07503248463">07503&nbsp;248463</a><br>
+              <strong>Email:</strong> <a href="mailto:info@westmerecare.co.uk">info@westmerecare.co.uk</a>
+            </p>
+            <p class="mt-0 text-muted">We aim to reply to every enquiry within one working day.</p>
           </div>
-
-          <div class="form-row-2">
-            <div>
-              <label for="ref-phone">Phone number <span class="required-mark">*</span></label>
-              <input type="tel" id="ref-phone" name="phone" autocomplete="tel" required>
-            </div>
-            <div>
-              <label for="ref-email">Email address <span class="required-mark">*</span></label>
-              <input type="email" id="ref-email" name="email" autocomplete="email" required>
-            </div>
-          </div>
-
-          <div>
-            <label for="ref-message">Message <span class="required-mark">*</span> <span class="hint">— general placement need and timescale only; please do not name the child</span></label>
-            <textarea id="ref-message" name="message" required></textarea>
-          </div>
-
-          <div>
-            <button type="submit" class="btn btn-primary" data-label="Send Enquiry">Send Enquiry</button>
-          </div>
-
-          <p class="form-note">By submitting this form you agree to our <a href="privacy.html">Privacy &amp; Cookies Policy</a>. We will only use your details to respond to your enquiry.</p>
-        </form>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container">
-        <h2>Prefer to talk it through first?</h2>
-        <p>Call or email our referrals team directly.</p>
-        <p>
-          <strong>Phone:</strong> <a href="tel:07503248463">07503&nbsp;248463</a><br>
-          <strong>Email:</strong> <a href="mailto:info@westmerecare.co.uk">info@westmerecare.co.uk</a>
-        </p>
+        </div>
       </div>
     </section>
 
