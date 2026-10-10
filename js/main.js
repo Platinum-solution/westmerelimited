@@ -45,30 +45,6 @@
     if (mq.addEventListener) mq.addEventListener("change", handleBreakpoint);
   }
 
-  /* ---------- Cookie / privacy notice (UK GDPR) ---------- */
-  var CONSENT_KEY = "westmere_cookie_consent";
-  var banner = document.getElementById("cookie-banner");
-
-  if (banner) {
-    var stored = null;
-    try { stored = window.localStorage.getItem(CONSENT_KEY); } catch (e) { /* storage unavailable */ }
-
-    if (!stored) {
-      banner.hidden = false;
-    }
-
-    var acceptBtn = banner.querySelector("[data-cookie-accept]");
-    var essentialBtn = banner.querySelector("[data-cookie-essential]");
-
-    function dismiss(value) {
-      banner.hidden = true;
-      try { window.localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* storage unavailable */ }
-    }
-
-    if (acceptBtn) acceptBtn.addEventListener("click", function () { dismiss("accepted"); });
-    if (essentialBtn) essentialBtn.addEventListener("click", function () { dismiss("essential-only"); });
-  }
-
   /* ---------- Enquiry / referral / contact forms ---------- */
   // Progressive enhancement only: forms work via a normal POST (e.g. to Formspree)
   // even if this script fails to load. When JS is available, we intercept submission
